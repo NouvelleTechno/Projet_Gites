@@ -1,0 +1,87 @@
+Projet Réservation de gîtes (plateforme de reservation pas site)
+Projet par groupes - Temps estimé : 15 jours
+Technologies, outils et concepts travaillés : PHP, programmation orientée objet (POO), HTML, CSS, MCD
+
+Description du projet :
+Vous allez réaliser une plateforme de réservation de gîtes se situant dans une zone géographique précise (au choix). La plateforme est gérée par un seul administrateur qui pourra s'occuper d'ajouter, modifier ou supprimer des gîtes.
+
+Côté client pas besoin de compte utilisateur. On pourra visualiser la liste des différents gîtes ainsi que leurs détails. On pourra aussi effectuer une recherche pour trouver un gîte selon ses critères et ses disponibilités.
+
+Il vous faudra créer une classe représentant un hébergement. Il existera plusieurs catégories d’hébergements (exemple : chambre, appartement, maison, villa…), pour chacune il faudra créer une instance de cette classe. Il faudra au minimum pour chaque hébergement :
+
+Intitulé de l’hébergement
+Description
+Photo(s)
+Nombre de couchages
+Nombre de salles de bain
+Emplacement géographique
+Prix
+Disponibilité
+Chaque catégorie d’hébergement peut avoir des spécificités, par exemple pour un appartement ou plus grand on peut indiquer le nombre de pièces, pour une maison la présence d’un jardin particulier etc.
+
+Côté administrateur on aura :
+
+Un back-office (connecté à une base de données) permettant :
+
+De visualiser l'ensemble des gîtes et leur statut (occupé ou libre)
+D’ajouter des gîtes
+De supprimer des gîtes
+De les modifier
+
+Côté utilisateur on aura :
+Une page accueil avec :
+La liste des gîtes disponibles
+Un formulaire de recherche (date de départ, date de fin, nombre de couchages
+Une fiche par gîte avec un formulaire de réservation
+La réception d'un mail lorsque la réservation est effectuée
+
+Gestion des disponibilités :
+
+Niveau 1 :
+Lorsqu'un gîte est réservé pour une période il devient indisponible pour celle-ci. 
+Il reste accessible par une recherche mais il faudra indiquer les jours d'indisponibilité. 
+Il est possible de faire une réservation pour les jours disponibles.
+
+
+Les plus : à réaliser si vous avez le temps
+
+Lorsqu'un gîte est réservé pour une période il devient indisponible 
+pour celle-ci. Il reste accessible par une recherche mais il faudra 
+indiquer les jours d'indisponibilité. Il est possible de faire une 
+réservation pour les jours disponibles.
+
+Afficher la localisation des gîtes sur une carte
+ 
+
+Rappel des tâches :
+Benchmark(étude de marché, cb de page on vas avoir besoin, qu'elle techno use, qu'elle fonctio ajouter(cadrer nos besoin)prioriser les tache) + maquette du site (temps estimé : 3 jours)
+Concevoir un MCD
+Concevoir un MLD
+Concevoir le modèle physique
+Concevoir le diagramme de la classe "hébergement" ensemble
+Se répartir pour la réalisation du back-end & front-end
+Faire un point avec le formateur tout le long du projet pour valider chaque étape.
+
+ 
+
+Objectifs :
+Découvrir et manipuler la programmation orientée objet en PHP
+Consolider les bases du CRUD
+Consolider/approfondir les bases du langage SQL
+Thèmes : 
+Programmation orientée objet
+Bases de données
+Ressources :
+Parcours "PHP > Programmation orientée objet" sur vos-formations.com
+
+https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/introduction-programmation-orientee-objet/
+
+https://www.grafikart.fr/formations/programmation-objet-php
+
+https://sql.sh/
+
+MCD
+https://www.base-de-donnees.com/mcd/
+http://www-igm.univ-mlv.fr/~chochois/RessourcesCommunes/BDD/Modelisation/coursMLD.pdf
+https://www.smartmodel.ch/home/differences/mcd_mld
+ 
