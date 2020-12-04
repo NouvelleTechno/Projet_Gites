@@ -43,7 +43,7 @@ Une page accueil avec :
 - Niveau 1 : Lorsqu'un gîte est réservé il devient indisponible et ne plus apparaître dans les recherche. Une fois disponible on peut le réserver à nouveau
 - Niveau 2 : Lorsqu'un gîte est réservé pour une période il devient indisponible pour celle-ci. Il reste accessible par une recherche mais il faudra indiquer les jours d'indisponibilité. Il est possible de faire une réservation pour les jours disponibles.
 
-## En plus ➕ 
+## En plus  
 
 - Afficher un calendrier de disponibilité de chaque gîte
 - Afficher la localisation des gîtes sur une carte
