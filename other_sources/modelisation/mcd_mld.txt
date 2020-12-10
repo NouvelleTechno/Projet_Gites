@@ -1,0 +1,18 @@
+Le Mcd (Modèle Conceptuel de Données)
+
+Pour chaque gîtes il faut savoir:
+- ID
+- Un nom de Gîtes
+- Son adresse
+- Son Prix
+- Catégorie
+- Nombre de couchage
+- Nombre de salle de bain
+(-S'il est dispo
+- Son nombre de pièces
+- Ses equipement)
+- Une Description
+- Des photos
+
+
+
