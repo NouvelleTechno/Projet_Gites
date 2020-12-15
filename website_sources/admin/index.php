@@ -1,3 +1,7 @@
+<?php
+// Démarre une nouvelle session ou reprend une session existante
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,12 +19,28 @@
 </head>
 <body class="text-center">
     <!-- Formulaire de Connexion Administrateur -->
-    <form action="#" method="POST" class="form-signin form_co">
+    <form action="auth/authentification.php" method="POST" class="form-signin form_co">
         <img src="../assets/img/Logo/chatel_logo.png" alt="Logo Chatel">
+        <?php
+                // Si la session contient l'erreur alors afficher le message correspondant 
+                if(!empty($_SESSION['error'])){
+                    echo '<div class="alert alert-danger" role="alert">
+                            '. $_SESSION ['error'].'
+                            </div>';
+                            $_SESSION['error'] = "";
+                }
+                // Si la session contient l'erreur alors afficher le message correspondant 
+                if(!empty($_SESSION['nolog'])){
+                    echo '<div class="alert alert-danger" role="alert">
+                            '. $_SESSION ['nolog'].'
+                            </div>';
+                            $_SESSION['nolog'] = "";
+                }
+            ?>
             <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Adresse Email" required autofocus><br>
+                <input type="email" name="mail_admin" id="inputEmail" class="form-control" placeholder="Adresse Email" required autofocus><br>
             <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required><br>
+                <input type="password" name="pass_admin" id="inputPassword" class="form-control" placeholder="Mot de Passe" required><br>
             <button class="btn myBtn" type="submit">Connexion</button>
     </form>
     <!-- Fin du Formulaire de Connexion Administrateur -->

@@ -36,7 +36,7 @@
             </div>
             <h1>Modification d'un Gîte</h1>
             <div class="deco">
-                <a  href="#"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+                <a  href="../../require/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->

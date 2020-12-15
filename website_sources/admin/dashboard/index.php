@@ -1,3 +1,26 @@
+<?php
+// on demarre la session
+session_start();
+// Si le mail et le mdp ne sont pas stocker dans la global session alors redirection pas login
+if(!isset($_SESSION['mail_admin']) && !isset($_SESSION['pass_admin'])){
+    $_SESSION['nolog'] = "Veuillez vous identifiez";
+    header('location:../index.php');
+}
+//On fait la connection à la base, require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
+require_once('../../require/connect.php');
+
+$sql = 'SELECT * FROM `gite`';
+// On prepare la requete
+$query = $db->prepare($sql);
+// on execute la requete
+$query->execute();
+
+// on stock le result dans un tableau assoc
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// Ferme la base de donnée, require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
+require_once('../../require/close.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,10 +58,28 @@
                 <a class="rubberBand bu btn btn-lg" href="ajout_gite.php" role="button">Ajouter</a>
             </div>
             <div class="deco">
-                <a  href="#"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+                <a  href="../../require/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->
+        <!-- Mon erreur si l'user se trompe d'id dans l'url -->
+        <?php
+            if(!empty($_SESSION['erreur'])){
+                echo '<div class="alert alert-danger" role="alert">
+                    '. $_SESSION ['erreur'].'
+                    </div>';
+                    $_SESSION['erreur'] = "";
+            }
+        ?>
+        <!-- Mon message quand le produit à été Modifié -->
+        <?php
+            if(!empty($_SESSION['message'])){
+                echo '<div class="alert alert-success" role="alert">
+                '. $_SESSION ['message'].'
+                </div>';
+                $_SESSION['message'] = "";
+            }
+        ?>
         <!-- Mon tableau -->
         <table class="tableau table table-striped">
             <!-- Mes Titre de Tableau -->
@@ -56,29 +97,41 @@
                 <th>Equipements</th>
                 <th>Description</th>
                 <th>Photo présentation</th>
-                <th>Photo Carrou</th>
+                <th>Photo Carrou 1</th>
+                <th>Photo Carrou 2</th>
+                <th>Photo Carrou 3</th>
                 
             </thead>
             <tbody>
+            <?php
+            // on boucle la var result
+            foreach($result as $gite){
+            ?>
                 <!-- Mes insersion de Tableau -->
                 <!-- Affiche se que l'admin ajoute -->
                 <tr>
-                    <!-- //<?=$produit['id']?> -->
-                    <td class="ico"><a href="details.php?id=<?= $produit['id']?>"><img class="rubberBand" src="../../assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a><a href="modif.php?id=<?= $produit['id'] ?>"><img class="rubberBand" src="../../assets/img/icone/modif_ico.png" alt="Modif" width="25px" height="25px"></a><a href="assets/require/supp.php?id=<?= $produit['id'] ?>"><img class="rubberBand" src="../../assets/img/icone/sup_ico.png" alt="Modif" width="25px" height="25px"></a></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="ico"><a href="details_gite.php?id=<?= $gite['id_gite']?>"><img class="rubberBand" src="../../assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a><a href="modification_gite.php?id=<?= $gite['id_gite'] ?>"><img class="rubberBand" src="../../assets/img/icone/modif_ico.png" alt="Modif" width="25px" height="25px"></a><a href="../../require/supp.php?id=<?= $gite['id_gite'] ?>"><img class="rubberBand" src="../../assets/img/icone/sup_ico.png" alt="supp" width="25px" height="25px"></a></td>
+                    <td><?=$gite['id_gite'] ?></td>
+                    <td><?=$gite['nom'] ?></td>
+                    <td><?=$gite['dispo'] ?></td>
+                    <td><?=$gite['adresse'] ?></td>
+                    <td><?=$gite['prix'] ?></td>
+                    <td><?=$gite['categorie'] ?></td>
+                    <td><?=$gite['nbr_couchage'] ?></td>
+                    <td><?=$gite['nbr_sdb'] ?></td>
+                    <td><?=$gite['nbr_piece'] ?></td>
+                    <td><?=$gite['equipement'] ?></td>
+                    <td><?=$gite['descrip'] ?></td>
+                    <td><?=$gite['img_pre'] ?></td>
+                    <td><?=$gite['img_carrou_1'] ?></td>
+                    <td><?=$gite['img_carrou_2'] ?></td>
+                    <td><?=$gite['img_carrou_3'] ?></td>
                 </tr>
+                <!-- PHP -->
+                <?php
+                }
+                ?>
+                <!-- PHP -->
             </tbody>
         </table>
         <!-- Fin de Mon Tableau -->
