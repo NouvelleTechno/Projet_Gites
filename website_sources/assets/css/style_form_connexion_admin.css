@@ -1,0 +1,40 @@
+@font-face{
+	    font-family: 'OpenSans';
+	    src: url('../fonts/OpenSans-Bold.ttf') format('truetype')
+             url('../fonts/OpenSans-BoldItalic.ttf') format('truetype'),
+             url('../fonts/OpenSans-ExtraBoldItalic.ttf') format('truetype'),
+             url('../fonts/OpenSans-Italic.ttf') format('truetype'),
+             url('../fonts/OpenSans-Light.ttf') format('truetype'),
+             url('../fonts/OpenSans-LightItalic.ttf') format('truetype'),
+             url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+             url('../fonts/OpenSans-SemiBold.ttf') format('truetype'),
+             url('../fonts/OpenSans-SemiBoldItalic.ttf') format('truetype');
+	    font-weight: normal;
+	    font-style: normal;
+}
+html{
+    height: 100% auto;
+    width: 100% auto;
+}
+body{
+    font-family: 'Opensans';
+    background-image: url(../img/img_co_admin/fond_admin.jpg);
+    background-position: center;
+    background-repeat: no-repeat;  
+}
+.form_co{
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+    margin-top: 15%;
+}
+img{
+    width: 100%;
+    padding-bottom: 50px;
+}
+.myBtn{
+    background-color:#655691;
+    color: white;
+    font-size: 17px;
+}

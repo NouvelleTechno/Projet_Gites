@@ -1,0 +1,167 @@
+@font-face{
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Bold.ttf') format('truetype')
+         url('../fonts/OpenSans-BoldItalic.ttf') format('truetype'),
+         url('../fonts/OpenSans-ExtraBoldItalic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Italic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Light.ttf') format('truetype'),
+         url('../fonts/OpenSans-LightItalic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+         url('../fonts/OpenSans-SemiBold.ttf') format('truetype'),
+         url('../fonts/OpenSans-SemiBoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html{
+    width: 100% auto;
+    height: 100% auto;
+}
+body{
+    font-family: 'Opensans';
+}
+/* Header */
+.nav_me{
+    height: 150px;
+    width: 100%;
+    background-color: #cfcdcd;
+    margin-bottom: 5px;
+}
+.ligne{
+    border-bottom:solid 2px white;
+}
+
+.nav_dash{
+    width: 100%; 
+}
+.chatel{
+    width: 100%;
+    text-align: center;
+}
+/* Fin Header */
+/* Menu */
+.menu{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+.bu_ajout{
+    padding-top: 6px;
+    padding-right: 15px;
+
+}
+.bu{
+    background-color: #655691;
+    color: white;
+    font-weight: normal;
+}
+.bu:hover{
+    border: solid 2px #655691;
+    background-color: white;
+    color: #655691;
+}
+.deco{
+    padding: 5px;
+    padding-right: 25px;
+}
+/* Fin Menu */
+/* Inventaire card */
+.card_gr{
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.contenu_card{
+    text-align: center;
+}
+.title_gite{
+    width: 100%;
+    color: #655691;
+    font-weight: bold;
+}
+
+.ico{
+    display: flex;
+    justify-content: space-around;
+}
+/* Fin Inventaire card */
+/* footer */
+footer{
+    width: 100%;
+    background-color: #cfcdcd;
+    text-align: center;
+    margin-top: 25px;
+}
+/* Fin footer */
+
+/* Animation Genrator pour lien */
+.rubberBand:hover{
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes rubberBand {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+    -webkit-transform: scale3d(.95, 1.05, 1);
+    transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+    -webkit-transform: scale3d(1.05, .95, 1);
+    transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    }
+    @keyframes rubberBand {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+    -webkit-transform: scale3d(.95, 1.05, 1);
+    transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+    -webkit-transform: scale3d(1.05, .95, 1);
+    transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+}
+/* https://www.theappguruz.com/ */
