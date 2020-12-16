@@ -1,3 +1,46 @@
+<?php
+// on demarre la session
+session_start();
+// Si le mail et le mdp ne sont pas stocker dans la global session alors redirection pas login
+if(!isset($_SESSION['mail_admin']) && !isset($_SESSION['pass_admin'])){
+    $_SESSION['nolog'] = "Veuillez vous identifiez";
+    header('location:../index.php');
+}
+
+// es que l'ID existe est n'est pas vide dans l'url
+if(isset($_GET['id']) && !empty($_GET['id'])){
+    // Connexion à la base, require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
+    require_once('../../require/connect.php');
+    
+    // On nettoie l'id envoyé
+    $id = strip_tags($_GET['id']);
+
+    $sql = 'SELECT * FROM `gite` WHERE `id_gite` = :id;';
+    
+    // On prepare la requete
+    $query = $db->prepare($sql);
+
+    // On "accroche" les parametres (id)
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+    // On execute la requete
+    $query->execute();
+
+    // On récupère le gite
+    $gite = $query->fetch();
+
+    // On verifie si le produit existe
+    if(!$gite){
+        $_SESSION['erreur'] = "Cet ID n'existe pas";
+        header('Location:index.php');
+    }
+
+    
+}else{
+        $_SESSION['erreur'] = "URL invalide";
+        header('Location:index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -49,13 +92,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="../../assets/img/img_slider_page_detail/lit_king_size_montagne.png" class="d-block w-100" alt="lit_king_size_montagne">
+                <img src="<?=$gite['img_carrou_1'] ?>" class="d-block w-100" alt="img_carrou_1">
                 </div>
                 <div class="carousel-item">
-                <img src="../../assets/img/img_slider_page_detail/salon_montagne_champagne.jpg" class="d-block w-100" alt="salon_montagne_champagne">
+                <img src="<?=$gite['img_carrou_2'] ?>" class="d-block w-100" alt="img_carrou_2">
                 </div>
                 <div class="carousel-item">
-                <img src="../../assets/img/img_slider_page_detail/salon_montagne_chemine.jpg" class="d-block w-100" alt="salon_montagne_chemine">
+                <img src="<?=$gite['img_carrou_3'] ?>" class="d-block w-100" alt="img_carrou_3">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -71,8 +114,8 @@
         <!-- Détails du Gite -->
         <!-- Titre Du gite et adresse du gite -->
         <div class="titre">
-            <h1>Nom Du Gite</h1>
-            <h2 class="ligne_detail"><img  src="../../assets/img/icone/localisation_ico.png" alt="icone local" width="50px">4 square couperin champagne sur seine 77430</h2>
+            <h1><?=$gite['nom'] ?></h1>
+            <h2 class="ligne_detail"><img  src="../../assets/img/icone/localisation_ico.png" alt="icone local" width="50px"><?=$gite['adresse'] ?></h2>
         </div>
         <!-- Fin Titre et adresse du gite -->
         <!-- Description Tarif -->
@@ -81,15 +124,14 @@
                 <div class="desc">
                     <h3 class="titre_desc">Description</h3><br>
                     <p class="txt_desc">
-                        Le gîte est une maison indépendante d’une superficie de 60 m2 sur 2 niveaux. 
-                        Elle est située sur notre propriété, à une cinquantaine de mètres de notre maison.
-                        Elle est équipée pour accueillir 4 personnes, plus un bébé (équipement gratuit sur demande).
+                        <?=$gite['descrip'] ?>
                     </p>
                 </div>
                 <div class="tarif">
-                    <h3 class="tar">69€/Nuit</h3>
-                    <p>Couchages: 2</p>
-                    <p>Salles de Bain: 2</p>
+                    <h3 class="tar"><?=$gite['prix'] ?>€/Nuit</h3>
+                    <p>Couchages: <?=$gite['nbr_couchage'] ?></p>
+                    <p>Salles de Bain: <?=$gite['nbr_sdb'] ?></p>
+                    <p>Nombre de Pièce: <?=$gite['nbr_piece'] ?></p>
                 </div>
             </div>
         <!-- Fin Description Tarif -->
@@ -103,10 +145,7 @@
                 </div>
                 <div class="equipe">
                     <h3 class="titre_equip">Equipements</h3>
-                    <p>Jardin</p>
-                    <p>Piscine</p>
-                    <p>Wifi</p>
-                    <p>Lave-Linge</p>
+                    <p><?=$gite['equipement'] ?></p>
                 </div>
             </div>
         <!-- Fin Reservation Equipement -->

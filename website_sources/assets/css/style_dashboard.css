@@ -66,27 +66,26 @@ body{
     padding-right: 25px;
 }
 /* Fin Menu */
-/* Tableau */
-.tableau{
+/* Inventaire card */
+.card_gr{
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.contenu_card{
+    text-align: center;
+}
+.title_gite{
     width: 100%;
+    color: #655691;
+    font-weight: bold;
 }
-.colonne{
-    width: 100%;
-    background-color: #655691;
-}
-.colonne th{
-    width: auto;
-    color:  white;
-}
+
 .ico{
-    padding: 0!important;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
 }
-.ico a{
-    margin-bottom: 5px; 
-}
-/* Fin Tableau */
+/* Fin Inventaire card */
 /* footer */
 footer{
     width: 100%;

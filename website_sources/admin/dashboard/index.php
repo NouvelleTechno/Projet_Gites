@@ -80,38 +80,40 @@ require_once('../../require/close.php');
                 $_SESSION['message'] = "";
             }
         ?>
-        <!-- Mon tableau -->
-        <table class="tableau table table-striped">
-            <!-- Mes Titre de Tableau -->
-            <thead class="colonne">
-                <th></th>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Disponibilité</th>
-                <th>Adresse</th>
-                <th>Prix</th>
-                <th>Catégorie</th>
-                <th>NB Couchages</th>
-                <th>NB Sdb</th>
-                <th>NB Pièce</th>
-                <th>Equipements</th>
-                <th>Description</th>
-                <th>Photo présentation</th>
-                <th>Photo Carrou 1</th>
-                <th>Photo Carrou 2</th>
-                <th>Photo Carrou 3</th>
-                
-            </thead>
-            <tbody>
+        <!-- Mon Inventaire des Gîtes -->
+            <!-- PHP -->
             <?php
             // on boucle la var result
             foreach($result as $gite){
             ?>
-                <!-- Mes insersion de Tableau -->
-                <!-- Affiche se que l'admin ajoute -->
-                <tr>
-                    <td class="ico"><a href="details_gite.php?id=<?= $gite['id_gite']?>"><img class="rubberBand" src="../../assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a><a href="modification_gite.php?id=<?= $gite['id_gite'] ?>"><img class="rubberBand" src="../../assets/img/icone/modif_ico.png" alt="Modif" width="25px" height="25px"></a><a href="../../require/supp.php?id=<?= $gite['id_gite'] ?>"><img class="rubberBand" src="../../assets/img/icone/sup_ico.png" alt="supp" width="25px" height="25px"></a></td>
-                    <td><?=$gite['id_gite'] ?></td>
+            <!-- fin PHP -->
+                <ul class="card_gr">
+                    <li>
+                        <div class="card" style="width: 16.5rem;">
+                            <img src="<?=$gite['img_pre'] ?>" class="card-img-top" alt="img présentation gîte">
+                            <div class="contenu_card card-body">
+                                <h4 class="title_gite card-title"><?=$gite['nom']?></h4>
+                                <div>
+                                    <p class="card-text"><?=$gite['id_gite'] ?></p>
+                                    <p class="card-text"><?=$gite['adresse'] ?></p>
+                                    <p class="card-text"><?=$gite['categorie'] ?></p>
+                                    <p class="card-text"><?=$gite['dispo'] ?></p>
+                                </div>
+                                <div class="ico">
+                                    <a href="details_gite.php?id=<?= $gite['id_gite']?>"><img class="rubberBand" src="../../assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a>
+                                    <a href="modification_gite.php?id=<?= $gite['id_gite']?>"><img class="rubberBand" src="../../assets/img/icone/modif_ico.png" alt="Modif" width="25px" height="25px"></a>
+                                    <a href="../../require/supp.php?id=<?= $gite['id_gite']?>"><img class="rubberBand" src="../../assets/img/icone/sup_ico.png" alt="supp" width="25px" height="25px"></a>
+                                </div>
+                            </div>   
+                        </div>
+                    </li>
+                </ul>
+
+                <?php
+                }
+                ?>
+
+                    <!-- <td class="id_gite"><?=$gite['id_gite'] ?></td>
                     <td><?=$gite['nom'] ?></td>
                     <td><?=$gite['dispo'] ?></td>
                     <td><?=$gite['adresse'] ?></td>
@@ -125,16 +127,9 @@ require_once('../../require/close.php');
                     <td><?=$gite['img_pre'] ?></td>
                     <td><?=$gite['img_carrou_1'] ?></td>
                     <td><?=$gite['img_carrou_2'] ?></td>
-                    <td><?=$gite['img_carrou_3'] ?></td>
-                </tr>
-                <!-- PHP -->
-                <?php
-                }
-                ?>
-                <!-- PHP -->
-            </tbody>
-        </table>
-        <!-- Fin de Mon Tableau -->
+                    <td><?=$gite['img_carrou_3'] ?></td> -->
+
+        <!-- Fin de Mon Inventaire des Gîtes -->
     </main>
     <!-- Fin Main -->
     <footer class="bottom">
