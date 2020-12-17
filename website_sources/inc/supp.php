@@ -3,19 +3,19 @@
 session_start();
 
 // Est-ce que l'id existe et n'est pas vide dans l'URL
-if(isset($_GET['id']) && !empty($_GET['id'])){
+if(isset($_GET['id_gite']) && !empty($_GET['id_gite'])){
     require_once('connect.php');
 
     // On nettoie l'id envoyé
-    $id = strip_tags($_GET['id']);
+    $id_gite = strip_tags($_GET['id_gite']);
 
-    $sql = 'SELECT * FROM `gite` WHERE `id_gite` = :id;';
+    $sql = 'SELECT * FROM `gite` WHERE `id_gite` = :id_gite;';
 
     // On prépare la requête
     $query = $db->prepare($sql);
 
     // On "accroche" les paramètre (id)
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
+    $query->bindValue(':id_gite', $id_gite, PDO::PARAM_INT);
 
     // On exécute la requête
     $query->execute();
@@ -30,13 +30,13 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
         die();
     }
 
-    $sql = 'DELETE FROM `gite` WHERE `id_gite` = :id;';
+    $sql = 'DELETE FROM `gite` WHERE `id_gite` = :id_gite;';
 
     // On prépare la requête
     $query = $db->prepare($sql);
 
     // On "accroche" les paramètre (id)
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
+    $query->bindValue(':id_gite', $id_gite, PDO::PARAM_INT);
 
     // On exécute la requête
     $query->execute();

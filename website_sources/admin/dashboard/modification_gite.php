@@ -1,3 +1,12 @@
+<?php
+// Include Pour la Session
+require_once('../../inc/session.php');
+// Include Pour Create
+require_once('../../inc/update.php');
+// Include Pour le Read avec select ID
+require_once('../../inc/read_select.php');
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,24 +45,39 @@
             </div>
             <h1>Modification d'un Gîte</h1>
             <div class="deco">
-                <a  href="../../require/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+                <a  href="../../inc/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->
-        <!-- Formulaire d'ajout d'un Gîte -->
+        <?php
+            // Affiche l'erreur si le formulaire n'est pas complet
+            if(!empty($_SESSION['erreur'])){
+                echo '<div class="alert alert-danger" role="alert">
+                    '. $_SESSION ['erreur'].'
+                    </div>';
+                     $_SESSION['erreur'] = '';
+            }
+            if(!empty($_SESSION['erreurphoto'])){
+                echo '<div class="alert alert-danger" role="alert">
+                    '. $_SESSION ['erreurphoto'].'
+                    </div>';
+                    $_SESSION['erreurphoto'] = '';
+            }
+        ?>
+        <!-- Formulaire de modif d'un Gîte -->
         <form class="form_ajout" method="POST" action="" enctype="multipart/form-data" >
             <div class=" form_contain">
                     <!-- Nom Dispo -->
                     <div class="nom_dispo">
                         <div class="input_nom form-group">
-                            <label for="Nom">Nom</label>
-                            <input type="text" id="Nom" name="Nom" class="form-control">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" value="<?=$gite['nom']?>" class="form-control">
                         </div>
                         <div class="input_dispo form-group">
-                            <label for="disponibilite">Disponibilité</label><br>
-                            <select class="select_dispo form-select form-select-lg" aria-label="disponibilite">
-                                <option value="disponible" selected>Disponible</option>
-                                <option value="indisponible">Indisponible</option>
+                            <label for="dispo">Disponibilité</label><br>
+                            <select name="dispo" class="select_dispo form-select form-select-lg" aria-label="dispo" value="<?=$gite['dispo']?>">
+                                <option value="1">Disponible</option>
+                                <option value="2">Indisponible</option>
                             </select>
                         </div>
                     </div>
@@ -61,12 +85,12 @@
                     <!-- Adresse Prix -->
                     <div class="adresse_prix">
                         <div class="input_adresse form-group">
-                            <label for='Adresse'>Adresse</label>
-                            <input type="text" id='adresse' name='adresse' class="form-control">
+                            <label for='adresse'>Adresse</label>
+                            <input type="text" id='adresse' name='adresse' value="<?=$gite['adresse']?>" class="form-control">
                         </div>
                         <div class="input_prix form-group">
-                            <label for="Prix">Prix</label>
-                            <input type="text" id="Prix" name="Prix" class="form-control">
+                            <label for="prix">Prix</label>
+                            <input type="text" id="prix" name="prix" value="<?=$gite['prix']?>" class="form-control">
                         </div>
                     </div>
                     <!-- Fin Adresse Prix -->
@@ -75,15 +99,15 @@
                         <label for="Categorie">Catégorie:</label><br>
                         <div class="cate_gr">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="Categorie" id="inlineRadio1" value="Chambre">
+                                <input class="form-check-input" type="radio" name="categorie" id="inlineRadio1" value="Chambre" checked>
                                 <label class="form-check-label" for="inlineRadio1">Chambre</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="Categorie" id="inlineRadio2" value="Appartement">
+                                <input class="form-check-input" type="radio" name="categorie" id="inlineRadio2" value="Appartement">
                                 <label class="form-check-label" for="inlineRadio2">Appartement</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="Categorie" id="inlineRadio3" value="Maison">
+                                <input class="form-check-input" type="radio" name="categorie" id="inlineRadio3" value="Maison">
                                 <label class="form-check-label" for="inlineRadio3">Maison</label>
                             </div>
                         </div>
@@ -92,36 +116,16 @@
                     <!-- NB de Couchage, Sdb, Pièce(si cocher maison ou appart) -->
                     <div class="nb">
                         <div class="form-group">
-                                <label for="Couchages">NB de Couchages</label><br>
-                                <select class="select_dispo form-select form-select-lg" aria-label="Couchages">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <label for="nbr_couchage">NB de Couchages</label><br>
+                            <input name="nbr_couchage" type="number" min="0" max="15" value="<?=$gite['nbr_couchage']?>">
                         </div>
                         <div class="form-group">
-                                <label for="Sdb">NB de Sdb</label><br>
-                                <select class="select_dispo form-select form-select-lg" aria-label="Sdb">
-                                <option value="0" selected>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <label for="nbr_sdb">NB de Sdb</label><br>
+                            <input name="nbr_sdb" type="number" min="0" max="15" value="<?=$gite['nbr_sdb']?>">
                         </div>
                         <div class="form-group">
-                                <label for="Piece">NB de Pièce</label><br>
-                                <select class="select_dispo form-select form-select-lg" aria-label="Piece">
-                                <option value="0" selected>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <label for="nbr_piece">NB de Pièce</label><br>
+                            <input name="nbr_piece" type="number" min="0" max="15" value="<?=$gite['nbr_piece']?>">
                         </div>
                     </div>
                     <!-- Fin NB de Couchage, Sdb, Pièce(si cocher maison ou appart) -->
@@ -129,45 +133,46 @@
                     <div class="input_equip form-group">
                         <label for="Equipements">Equipements:</label><br>
                         <div class="equip_space form-check">
-                            <input class="form-check-input" type="checkbox" value="Wifi" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">Wifi</label>
+                            <input name="equipement_1" class="form-check-input" type="checkbox" value="Wifi" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">Wifi</label>
                         </div>
                         <div class="equip_space form-check">
-                            <input class="form-check-input" type="checkbox" value="Lave-Linge" id="flexCheckChecked">
+                            <input name="equipement_2" class="form-check-input" type="checkbox" value="Lave-Linge" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">Lave-Linge</label>
                         </div>
                         <div class="equip_space form-check">
-                            <input class="form-check-input" type="checkbox" value="Jardin" id="flexCheckChecked">
+                            <input name="equipement_3" class="form-check-input" type="checkbox" value="Jardin" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">Jardin</label>
                         </div> 
                         <div class="equip_space form-check">
-                            <input class="form-check-input" type="checkbox" value="Piscine" id="flexCheckChecked">
+                            <input name="equipement_4" class="form-check-input" type="checkbox" value="Piscine" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">Piscine</label>
                         </div> 
                     </div>
                     <!-- Fin Equipements -->
                     <!-- Photo de présentation card -->
                     <div class="form-group">
-                        <label for="Photopre">Photo de présentation:</label>
-                        <input type="file" id="Photopre" name="Photopre" class="input_pre">
+                        <label for="img_pre">Photo de présentation:</label>
+                        <input type="file" id="img_pre" name="img_pre" class="input_pre" value="<?=$gite['img_pre']?>">
                     </div>
                     <!-- Fin Photo de présentation card -->
                     <!-- Photo pour slider page détail -->
                     <div class="form-group">
-                        <label for="Carrou">Photo Carroussel:</label><br>
-                        <input type="file" id="Carrou1" name="Carrou1" class="input_sli">
-                        <input type="file" id="Carrou2" name="Carrou2" class="input_sli">
-                        <input type="file" id="Carrou3" name="Carrou3" class="input_sli">
+                        <label for="img_carrou">Photo Carroussel:</label><br>
+                        <input type="file" id="img_carrou_1" name="img_carrou_1" class="input_sli" value="<?=$gite['img_carrou_1']?>">
+                        <input type="file" id="img_carrou_2" name="img_carrou_2" class="input_sli" value="<?=$gite['img_carrou_2']?>">
+                        <input type="file" id="img_carrou_3" name="img_carrou_3" class="input_sli" value="<?=$gite['img_carrou_3']?>">
                     </div>
                     <!-- Fin Photo pour slider page détail -->
                     <!-- Description -->
                     <div class="form-group">
-                        <label for="Description">Description</label>
-                        <textarea id="Description" name="Description" class="form-control" row="6"></textarea>
+                        <label for="descrip">Description</label>
+                        <textarea id="descrip" name="descrip" value="<?=$gite['descrip']?>" class="form-control" row="6"></textarea>
                     </div>
                     <!-- Fin Description -->
+                        <input type="hidden" value="<?= $gite['id_gite']?>" name="id_gite">
                     <div class="div_bu_form">
-                        <button class=" rubberBand bu_form  btn btn-secondary btn-lg">Enregistrer</button>
+                        <button type="submit" class=" rubberBand bu_form  btn btn-secondary btn-lg">Enregistrer</button>
                     </div>
             </div>
         </form>
