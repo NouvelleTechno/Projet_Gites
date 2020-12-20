@@ -1,8 +1,8 @@
 <?php
 // Include Pour la Session
-require_once('../../inc/session.php');
+require_once('../../inc/connect_admin/session.php');
 // Include Pour le Read avec select ID
-require_once('../../inc/read_select.php');
+require_once('../../inc/CRUD/read_select.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -42,7 +42,7 @@ require_once('../../inc/read_select.php');
                 <a class="rubberBand bu btn btn-lg" href="index.php" role="button">Retour</a>
             </div>
             <div class="deco">
-                <a  href="../../inc/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+                <a  href="../../inc/connect_admin/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->
@@ -98,7 +98,7 @@ require_once('../../inc/read_select.php');
                 <div class="reserv">
                     <h3 class="titre_reserv">Réservation</h3><br>
                     <p class="txt_reserv">
-                        Indisponible
+                        Reservation Indisponible en Administrateur
                     </p>
                 </div>
                 <div class="equipe">

@@ -75,6 +75,7 @@ body{
 .div_card{
     margin-bottom: 15px;
     box-shadow: 0px 0px 3px black;
+    height: 100%;
 }
 .contenu_card{
     text-align: center;

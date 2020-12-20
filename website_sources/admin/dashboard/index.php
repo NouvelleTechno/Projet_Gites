@@ -1,8 +1,8 @@
 <?php
 // Include Pour la Session
-require_once('../../inc/session.php');
+require_once('../../inc/connect_admin/session.php');
 // Include Pour le Read
-require_once('../../inc/read.php');
+require_once('../../inc/CRUD/read.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -41,10 +41,11 @@ require_once('../../inc/read.php');
                 <a class="rubberBand bu btn btn-lg" href="ajout_gite.php" role="button">Ajouter</a>
             </div>
             <div class="deco">
-                <a  href="../../inc/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+                <a  href="../../inc/connect_admin/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->
+        <!-- PHP Erreur -->
         <!-- Mon erreur si l'user se trompe d'id dans l'url -->
         <?php
             if(!empty($_SESSION['erreur'])){
@@ -63,33 +64,37 @@ require_once('../../inc/read.php');
                 $_SESSION['message'] = "";
             }
         ?>
-        <!-- Mon Inventaire des Gîtes -->
+        <!-- Fin PHP Erreur -->
+        <!-- Mon Inventaire des Gîtes en Card -->
+        <div class="card_gr"> 
             <!-- PHP -->
-            <div class="card_gr"> 
             <!-- on boucle la var result -->
-                <?php foreach($result as $gite): extract($gite)?>
+            <?php foreach($result as $gite): extract($gite)?>
             <!-- fin PHP -->
-                    <div class="div_card">
-                        <div class="card" style="width: 16rem;">
-                            <img src="<?=$img_pre?>" class="card-img-top" alt="img présentation gîte">
-                            <div class="contenu_card card-body">
-                                <h4 class="title_gite card-title"><?=$nom?></h4>
-                                <div>
-                                    <p class="card-text"><?=$adresse?></p>
-                                    <p class="card-text"><?=$categorie?></p>
-                                    <p class="card-text"><?php require('../../inc/dispo.php');?></p>
-                                </div>
-                                <div class="ico">
-                                    <a href="details_gite.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="../../assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a>
-                                    <a href="modification_gite.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="../../assets/img/icone/modif_ico.png" alt="Modif" width="25px" height="25px"></a>
-                                    <a href="../../inc/supp.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="../../assets/img/icone/sup_ico.png" alt="supp" width="25px" height="25px"></a>
-                                </div>
-                            </div>   
-                        </div>
+                <div class="div_card">
+                    <div class="card" style="width: 16rem;">
+                        <img src="<?=$img_pre?>" class="card-img-top" alt="img présentation gîte">
+                        <div class="contenu_card card-body">
+                            <h4 class="title_gite card-title"><?=$nom?></h4>
+                            <div>
+                                <p class="card-text"><?=$adresse?></p>
+                                <p class="card-text"><?=$categorie?></p>
+                                <p class="card-text"><?php require('../../inc/CRUD/dispo.php');?></p>
+                            </div>
+                            <div class="ico">
+                                <a href="details_gite.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="../../assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a>
+                                <a href="modification_gite.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="../../assets/img/icone/modif_ico.png" alt="Modif" width="25px" height="25px"></a>
+                                <a href="../../inc/CRUD/supp.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="../../assets/img/icone/sup_ico.png" alt="supp" width="25px" height="25px"></a>
+                            </div>
+                        </div>   
                     </div>
-                <?php endforeach?>
-            </div>
-            <!-- Fin de Mon Inventaire des Gîtes -->
+                </div>
+            <!-- PHP -->
+            <!-- Fin de ma Foreach -->
+            <?php endforeach?>
+            <!-- Fin PHP -->
+        </div>
+        <!-- Fin de Mon Inventaire des Gîtes -->
     </main>
     <!-- Fin Main -->
     <footer class="bottom">

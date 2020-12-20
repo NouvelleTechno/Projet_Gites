@@ -2,22 +2,22 @@
 //Si la var $_POST, $_FILES sont déclaré
 if($_POST && $_FILES){
     //Vérifie Si les champs ne sont pas vide
-    if(isset($_POST['nom'])
+    if(isset($_POST['nom']) && !empty($_POST['nom'])
     && isset($_POST['dispo'])
-    && isset($_POST['adresse'])
-    && isset($_POST['prix'])
-    && isset($_POST['categorie'])
-    && isset($_POST['nbr_couchage'])
-    && isset($_POST['nbr_sdb'])
+    && isset($_POST['adresse']) && !empty($_POST['adresse'])
+    && isset($_POST['prix']) && !empty($_POST['prix'])
+    && isset($_POST['categorie']) && !empty($_POST['categorie'])
+    && isset($_POST['nbr_couchage']) && !empty($_POST['nbr_couchage'])
+    && isset($_POST['nbr_sdb']) && !empty($_POST['nbr_sdb'])
     && isset($_POST['nbr_piece'])
-    && isset($_POST['descrip'])
-    && isset($_FILES['img_pre'])
-    && isset($_FILES['img_carrou_1'])
-    && isset($_FILES['img_carrou_2'])
-    && isset($_FILES['img_carrou_3'])){
+    && isset($_POST['descrip']) && !empty($_POST['descrip'])
+    && isset($_FILES['img_pre']) && !empty($_FILES['img_pre'])
+    && isset($_FILES['img_carrou_1']) && !empty($_FILES['img_carrou_1'])
+    && isset($_FILES['img_carrou_2']) && !empty($_FILES['img_carrou_2'])
+    && isset($_FILES['img_carrou_3']) && !empty($_FILES['img_carrou_3'])){
             
         // On se connect à la base de donnée,  require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
-        require_once('connect.php');
+        require_once('../../inc/db/connect.php');
             
         // On nettoie les données envoyées
         // Supprime les balises HTML et PHP d'une chaîne
@@ -70,7 +70,7 @@ if($_POST && $_FILES){
         $query = $db->prepare($sql);
         // On param notre  requete query avec le param adéquat à chaque champ(associe une valeur à un param)(param varchar text)
         $query->bindValue(':nom', $nom, PDO::PARAM_STR);
-        $query->bindValue(':dispo', $dispo, PDO::PARAM_BOOL);
+        $query->bindValue(':dispo', $dispo, PDO::PARAM_STR);
         $query->bindValue(':adresse', $adresse, PDO::PARAM_STR);
         $query->bindValue(':prix', $prix, PDO::PARAM_STR);
         $query->bindValue(':categorie', $categorie, PDO::PARAM_STR);
@@ -91,7 +91,7 @@ if($_POST && $_FILES){
         // On parametre le message si tout à fonctionner
         $_SESSION['message'] = "Success Votre Gîte à été Ajouter avec succès";
         // On ferme la base de donnée,  require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
-        require_once('close.php');
+        require_once('../../inc/db/close.php');
         // On fait la redirection vers la dashboard ou sera affiché le message 
         header('Location:index.php');
 

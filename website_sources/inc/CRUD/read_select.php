@@ -2,7 +2,7 @@
 // es que l'ID existe est n'est pas vide dans l'url
 if(isset($_GET['id_gite']) && !empty($_GET['id_gite'])){
     // Connexion à la base, require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
-    require_once('connect.php');
+    require_once('../../inc/db/connect.php');
     
     // On nettoie l'id envoyé
     $id_gite = strip_tags($_GET['id_gite']);
