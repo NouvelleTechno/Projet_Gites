@@ -1,8 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['mail_admin']) && isset($_SESSION['pass_admin'])){
-    $_SESSION['nolog'] = "Veuillez vous identifiez";
-    header('location:dashboard/index.php');
+    header('location:admin_dashboard.php');
 }
 ?>
 <!DOCTYPE html>
@@ -11,19 +10,19 @@ if(isset($_SESSION['mail_admin']) && isset($_SESSION['pass_admin'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo Chatel -->
-    <link rel="icon" href="../assets/img/Logo/chatel_logo.png">
+    <link rel="icon" href="assets/img/Logo/chatel_logo.png">
     <!-- Titre de la page -->
     <title>Connexion Administrateur</title>
     <!-- Link vers les styles -->
     <!-- Style Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- Mon style -->
-    <link rel="stylesheet" href="../assets/css/style_form_connexion_admin.css">
+    <link rel="stylesheet" href="assets/css/style_form_connexion_admin.css">
 </head>
 <body class="text-center">
     <!-- Formulaire de Connexion Administrateur -->
-    <form action="../inc/connect_admin/authentification.php" method="POST" class="form-signin form_co">
-        <img src="../assets/img/Logo/chatel_logo.png" alt="Logo Chatel">
+    <form action="inc/connect_admin/authentification.php" method="POST" class="form-signin form_co">
+        <img src="assets/img/Logo/chatel_logo.png" alt="Logo Chatel">
             <?php
                 // Si la session contient l'erreur alors afficher le message correspondant 
                 if(!empty($_SESSION['error'])){

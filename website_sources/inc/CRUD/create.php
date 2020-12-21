@@ -16,7 +16,7 @@ if($_POST && $_FILES){
     && isset($_FILES['img_carrou_3']) && !empty($_FILES['img_carrou_3'])){
             
         // On se connect à la base de donnée,  require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
-        require_once('../../inc/db/connect.php');
+        require_once('inc/db/connect.php');
             
         // On nettoie les données envoyées
         // Supprime les balises HTML et PHP d'une chaîne
@@ -39,8 +39,8 @@ if($_POST && $_FILES){
         $img_carrou_3 = strip_tags($_POST['img_carrou_3']);
         
         //met dans la var le chemin ou je veux que les images soit save 
-        $uploadcheminpre = "../../assets/img_gite/img_pre/card_$nom";
-        $uploadchemincarrou = "../../assets/img_gite/img_carrou/carrou_$nom";
+        $uploadcheminpre = "assets/img_gite/img_pre/card_$nom";
+        $uploadchemincarrou = "assets/img_gite/img_carrou/carrou_$nom";
         // On insert dans la var $uploadfile le chemin plus nom du fichier envoyer dans la $_FILES
         // photo présentation
         $uploadfichier1 = $uploadcheminpre . basename($_FILES['img_pre']['name']);
@@ -90,9 +90,9 @@ if($_POST && $_FILES){
         // On parametre le message si tout à fonctionner
         $_SESSION['message'] = "Success Votre Gîte à été Ajouter avec succès";
         // On ferme la base de donnée,  require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
-        require_once('../../inc/db/close.php');
+        require_once('inc/db/close.php');
         // On fait la redirection vers la dashboard ou sera affiché le message 
-        header('Location:index.php');
+        header('Location:admin_dashboard.php');
 
     }else{
         // On parametre le message d'erreur si les champs ne sont pas complet

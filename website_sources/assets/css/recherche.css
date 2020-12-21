@@ -1,0 +1,42 @@
+.card_acc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 30px;
+    width: 79%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+    .btn{
+        background-color: #655691;
+    }
+   
+    .card_re{
+        /* background-color: #cfcdcd; */
+        background-color: rgba(233, 229, 229, .5) !important;
+        /* border: solid 3px red; */
+        /* margin: 30px; */
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-bottom: 30px;
+        box-shadow: 3px 3px 5px #655691;
+        text-align: center;
+    
+        
+        
+        
+    }
+    .titre_card{
+        color:  #655691;
+    }
+    .form_acc{
+        width: 50%;
+        background-color: rgba(233, 229, 229, .5) !important;
+        position: absolute;
+        top: 50%;
+        /* transform: translate(50%); */
+        left: 23%;
+        z-index: 9999;
+    }
+    

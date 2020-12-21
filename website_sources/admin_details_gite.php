@@ -1,8 +1,8 @@
 <?php
 // Include Pour la Session
-require_once('../../inc/connect_admin/session.php');
+require_once('inc/connect_admin/session.php');
 // Include Pour le Read avec select ID
-require_once('../../inc/CRUD/read_select.php');
+require_once('inc/CRUD/read_select.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,15 +10,15 @@ require_once('../../inc/CRUD/read_select.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo Chatel -->
-    <link rel="icon" href="../../assets/img/Logo/chatel_logo.png">
+    <link rel="icon" href="assets/img/Logo/chatel_logo.png">
     <!-- Titre de la page -->
     <title>Détails du Gîte</title>
     <!-- Link vers les styles -->
     <!-- Style Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Mon Style -->
-    <link rel="stylesheet" href="../../assets/css/style_details.css">
+    <link rel="stylesheet" href="assets/css/style_details.css">
 </head>
 <body>
     <!-- Header -->
@@ -27,7 +27,7 @@ require_once('../../inc/CRUD/read_select.php');
         <nav class="top navbar-expand-lg nav_me">
             <div class="nav_dash">
                 <div class="chatel">
-                    <img class="ligne" src="../../assets/img/Logo/chatel_logo.png" alt="Chatel Logo">
+                    <img class="ligne" src="assets/img/Logo/chatel_logo.png" alt="Chatel Logo">
                 </div>
             </div>
         </nav>
@@ -39,10 +39,10 @@ require_once('../../inc/CRUD/read_select.php');
         <!-- Menu -->
         <div class="menu">
             <div class="bu_retour">
-                <a class="rubberBand bu btn btn-lg" href="index.php" role="button">Retour</a>
+                <a class="rubberBand bu btn btn-lg" href="admin_dashboard.php" role="button">Retour</a>
             </div>
             <div class="deco">
-                <a  href="../../inc/connect_admin/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+                <a  href="inc/connect_admin/deconnection.php"><img class="rubberBand" src="assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->
@@ -73,7 +73,7 @@ require_once('../../inc/CRUD/read_select.php');
         <!-- Titre Du gite et adresse du gite -->
         <div class="titre">
             <h1><?=$gite['nom'] ?></h1>
-            <h2 class="ligne_detail"><img  src="../../assets/img/icone/localisation_ico.png" alt="icone local" width="50px"><?=$gite['adresse'] ?></h2>
+            <h2 class="ligne_detail"><img  src="assets/img/icone/localisation_ico.png" alt="icone local" width="50px"><?=$gite['adresse'] ?></h2>
         </div>
         <!-- Fin Titre et adresse du gite -->
         <!-- Description Tarif -->
@@ -82,7 +82,7 @@ require_once('../../inc/CRUD/read_select.php');
                 <div class="desc">
                     <h3 class="titre_desc">Description</h3><br>
                     <p class="txt_desc">
-                        <?=$gite['descrip'] ?>
+                        <?=$gite['descrip']?>
                     </p>
                 </div>
                 <div class="tarif">
@@ -119,7 +119,7 @@ require_once('../../inc/CRUD/read_select.php');
     </main>
     <!-- Fin main -->
     <footer class="bottom">
-        <img class="logo " src="../../assets/img/Logo/logo.png" alt="Logo YS" width="100px">
+        <img class="logo " src="assets/img/Logo/logo.png" alt="Logo YS" width="100px">
     </footer>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

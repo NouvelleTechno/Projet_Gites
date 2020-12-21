@@ -29,13 +29,13 @@ if (isset($_POST['mail_admin']) && isset($_POST['pass_admin'])){
     if($email === $result['mail_admin'] && $password === $result['pass_admin']){
         $_SESSION['mail_admin'] = $email;
         $_SESSION['pass_admin'] = $password;
-        header('location:../../admin/dashboard/index.php');
+        header('location:../../admin_dashboard.php');
 
     // Sinon On retourne à la page login avec un message d'erreur
     }else{
 
         $_SESSION['error'] = "Email ou Mot de passe Incorrect";
-        header('location:../../admin/index.php');
+        header('location:admin.php');
     }
     
 }

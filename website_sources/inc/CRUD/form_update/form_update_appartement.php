@@ -9,10 +9,10 @@
                     </div>
                     <?php
                         if ($gite['dispo'] == 0){
-                            require_once('../../inc/CRUD/update_dispo/update_indispo.php');
+                            require_once('inc/CRUD/update_dispo/update_indispo.php');
                         
                         }else{
-                            require_once('../../inc/CRUD/update_dispo/update_dispo.php');
+                            require_once('inc/CRUD/update_dispo/update_dispo.php');
                         }
                     ?>
                 </div>
@@ -51,18 +51,18 @@
                     <div class="equip_space form-check">
                         <?php
                             if ($gite['equipement_1'] == "Wifi"){
-                                require_once('../../inc/CRUD/equipement/equipement_1_check.php');
+                                require_once('inc/CRUD/equipement/equipement_1_check.php');
                             }else{
-                                require_once('../../inc/CRUD/equipement/equipement_1_ncheck.php');
+                                require_once('inc/CRUD/equipement/equipement_1_ncheck.php');
                             }
                         ?>
                     </div>
                     <div class="equip_space form-check">
                         <?php
                             if ($gite['equipement_2'] == "Lave-Linge"){
-                                require_once('../../inc/CRUD/equipement/equipement_2_check.php');
+                                require_once('inc/CRUD/equipement/equipement_2_check.php');
                             }else{
-                                require_once('../../inc/CRUD/equipement/equipement_2_ncheck.php');
+                                require_once('inc/CRUD/equipement/equipement_2_ncheck.php');
                             }
                         ?>
                     </div>
