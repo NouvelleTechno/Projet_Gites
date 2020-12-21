@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 15 déc. 2020 à 18:55
+-- Généré le : lun. 21 déc. 2020 à 10:02
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
 
@@ -49,14 +49,17 @@ INSERT INTO `admin` (`id_admin`, `mail_admin`, `pass_admin`) VALUES
 CREATE TABLE `gite` (
   `id_gite` int(11) NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
-  `dispo` tinyint(4) DEFAULT NULL,
+  `dispo` varchar(100) DEFAULT NULL,
   `adresse` varchar(255) DEFAULT NULL,
   `prix` varchar(50) DEFAULT NULL,
   `categorie` varchar(255) DEFAULT NULL,
   `nbr_couchage` int(11) DEFAULT NULL,
   `nbr_sdb` int(11) DEFAULT NULL,
   `nbr_piece` int(11) DEFAULT NULL,
-  `equipement` varchar(255) DEFAULT NULL,
+  `equipement_1` varchar(100) DEFAULT NULL,
+  `equipement_2` varchar(100) DEFAULT NULL,
+  `equipement_3` varchar(100) DEFAULT NULL,
+  `equipement_4` varchar(100) DEFAULT NULL,
   `descrip` longtext DEFAULT NULL,
   `img_pre` varchar(255) DEFAULT NULL,
   `img_carrou_1` varchar(255) DEFAULT NULL,
@@ -68,16 +71,16 @@ CREATE TABLE `gite` (
 -- Déchargement des données de la table `gite`
 --
 
-INSERT INTO `gite` (`id_gite`, `nom`, `dispo`, `adresse`, `prix`, `categorie`, `nbr_couchage`, `nbr_sdb`, `nbr_piece`, `equipement`, `descrip`, `img_pre`, `img_carrou_1`, `img_carrou_2`, `img_carrou_3`) VALUES
-(1, 'Patate', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Patate', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Patate', 1, '', '', NULL, 1, 0, 0, NULL, '', NULL, NULL, NULL, NULL),
-(4, 'Patate', 1, '', '', 'Chambre', 1, 0, 0, NULL, '', NULL, NULL, NULL, NULL),
-(5, 'Patate', 1, '', '', 'Chambre', 1, 0, 0, 'Wifi', '', NULL, NULL, NULL, NULL),
-(6, 'Patate', 1, '', '', 'Chambre', 1, 0, 0, 'Wifi', '', '../../assets/img_gite_cree/lit_king_size_montagne.png', '../../assets/img_gite_cree/salon_montagne_champagne.jpg', '../../assets/img_gite_cree/salon_montagne_chemine.jpg', '../../assets/img_gite_cree/lit_king_size_montagne.png'),
-(7, 'Patate', 1, '', '', 'Chambre', 1, 0, 0, '', '', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/'),
-(8, 'Patate', 1, '', '', 'Chambre', 1, 0, 0, '', '', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/'),
-(9, 'Patate', 1, '', '', 'Chambre', 1, 0, 0, '', '', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/', '../../assets/img_gite_cree/');
+INSERT INTO `gite` (`id_gite`, `nom`, `dispo`, `adresse`, `prix`, `categorie`, `nbr_couchage`, `nbr_sdb`, `nbr_piece`, `equipement_1`, `equipement_2`, `equipement_3`, `equipement_4`, `descrip`, `img_pre`, `img_carrou_1`, `img_carrou_2`, `img_carrou_3`) VALUES
+(92, 'Gite des trois coyotte', '1', '149 avenue du prado', '5351', 'Appartement', 2, 1, 3, 'Wifi', 'Lave-Linge', 'Jardin', 'Piscine', 'Alllo', '../../assets/img_gite/img_pre/card_Gite des trois coyotteimg_chalet_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Gite des trois coyottelit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Gite des trois coyottesalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Gite des trois coyottesalon_montagne_chemine.jpg'),
+(94, 'gite aluiles', '1', '149 avenue du prado', '77', 'Maison', 1, 2, 1, '', 'Lave-Linge', 'Jardin', 'Piscine', 'LOPPPPP', '../../assets/img_gite/img_pre/card_gite aluileimg_salon_tele_chemine_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_gite aluilelit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_gite aluilesalon_montagne_chemine.jpg', '../../assets/img_gite/img_carrou/carrou_gite aluilesalon_montagne_champagne.jpg'),
+(99, 'Yoann Génique', '1', '149 avenue du prado', '77', 'Appartement', 4, 2, 3, 'Wifi', 'Lave-Linge', '', '', 'ok', '../../assets/img_gite/img_pre/card_Yoann Géniqueimg_chambre_chemine_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquelit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_chemine.jpg'),
+(100, 'Yoann Géniquenini', '0', '149 avenue du prado', '77', 'Appartement', 1, 2, 3, 'Wifi', 'Lave-Linge', '', '', 'cc', '../../assets/img_gite/img_pre/card_Yoann Géniqueimg_salon_tele_chemine_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_chemine.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquelit_king_size_montagne.png'),
+(102, 'Yoann Géniqueaa', '1', '149 avenue du prado', '77', 'Appartement', 2, 2, 2, 'Wifi', 'Lave-Linge', 'Jardin', 'Piscine', 'adios pelo', '../../assets/img_gite/img_pre/card_Yoann Géniqueimg_chalet_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquelit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_chemine.jpg'),
+(103, 'Les Gites Trop sympas', '1', '8 rue de la balade', '77', 'Appartement', 1, 1, 1, 'Wifi', 'Lave-Linge', '', '', 'aller salut', '../../assets/img_gite/img_pre/card_Les Gites Trop sympasimg_salon_tele_chemine_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Les Gites Trop sympassalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Les Gites Trop sympaslit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Les Gites Trop sympassalon_montagne_chemine.jpg'),
+(104, 'Gites des 4 patates', '1', '89 avenue de la Gare', '88', 'Maison', 2, 1, 3, 'Wifi', '', '', 'Piscine', 'Pourquoi pas.', '../../assets/img_gite/img_pre/card_Gites des 4 patatesimg_chambre_chemine_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Gites des 4 patatessalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Gites des 4 patateslit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Gites des 4 patatessalon_montagne_chemine.jpg'),
+(105, 'Yoann Génique', '1', '149 avenue du prado', '77', 'Chambre', 1, 2, 3, 'Wifi', '', '', 'Piscine', 'Aller on y vas', '../../assets/img_gite/img_pre/card_Yoann Géniqueimg_chalet_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_chemine.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquelit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_champagne.jpg'),
+(106, 'Yoann Génique', '0', '149 avenue du prado', '77798', 'Chambre', 1, 1, 2, 'Wifi', '', '', '', 'Yo', '../../assets/img_gite/img_pre/card_Yoann Géniqueimg_salon_tele_chemine_montagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquelit_king_size_montagne.png', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_champagne.jpg', '../../assets/img_gite/img_carrou/carrou_Yoann Géniquesalon_montagne_chemine.jpg');
 
 -- --------------------------------------------------------
 
@@ -145,7 +148,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `gite`
 --
 ALTER TABLE `gite`
-  MODIFY `id_gite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_gite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT pour la table `reservation`
