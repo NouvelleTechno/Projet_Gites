@@ -89,7 +89,11 @@ require_once('../../inc/CRUD/read_select.php');
                     <h3 class="tar"><?=$gite['prix'] ?>€/Nuit</h3>
                     <p>Couchages: <?=$gite['nbr_couchage'] ?></p>
                     <p>Salles de Bain: <?=$gite['nbr_sdb'] ?></p>
-                    <p>Nombre de Pièce: <?=$gite['nbr_piece'] ?></p>
+                    <?php
+                    if($gite['nbr_piece'] > 0){
+                    echo "<p>Nombre de Pièce: $gite[nbr_piece]</p>";
+                    }
+                    ?>
                 </div>
             </div>
         <!-- Fin Description Tarif -->
