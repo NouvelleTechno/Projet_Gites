@@ -11,7 +11,7 @@ $password = strip_tags($_POST['pass_admin']);
 if (isset($_POST['mail_admin']) && isset($_POST['pass_admin'])){
 
     // On se connect à la base de données, require stop le script si y'a une erreur comparer à include et once sert à la vérification de si le code à déjà été excécuter 
-    require_once('../../require/connect.php');
+    require_once('../db/connect.php');
 
     // On prepare une demande de récuperer tout dans colonne email de la table users
     $query = $db->prepare('SELECT * FROM admin WHERE mail_admin = :mail_admin ;');
@@ -29,13 +29,13 @@ if (isset($_POST['mail_admin']) && isset($_POST['pass_admin'])){
     if($email === $result['mail_admin'] && $password === $result['pass_admin']){
         $_SESSION['mail_admin'] = $email;
         $_SESSION['pass_admin'] = $password;
-        header('location:../dashboard/index.php');
+        header('location:../../admin/dashboard/index.php');
 
     // Sinon On retourne à la page login avec un message d'erreur
     }else{
 
         $_SESSION['error'] = "Email ou Mot de passe Incorrect";
-        header('location:../index.php');
+        header('location:../../admin/index.php');
     }
     
 }
