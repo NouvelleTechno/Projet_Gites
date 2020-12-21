@@ -110,6 +110,13 @@ h1{
     color: #655691;
     font-weight: bold;
 }
+<<<<<<< HEAD
+=======
+.txt_desc{
+    font-weight: 500!important;
+    font-size: 1rem!important;
+}
+>>>>>>> master
 .tarif{
     width: 40%;
     background-color: #cfcdcd;

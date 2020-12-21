@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // on demarre la session
 session_start();
 // Si le mail et le mdp ne sont pas stocker dans la global session alors redirection pas login
@@ -94,6 +95,12 @@ if($_POST && $_FILES){
        
     }
 }
+=======
+// Include Pour la Session
+require_once('../../inc/connect_admin/session.php');
+// Include Pour Create
+require_once('../../inc/CRUD/create.php');
+>>>>>>> master
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -131,12 +138,22 @@ if($_POST && $_FILES){
             <div class="bu_retour">
                 <a class="rubberBand bu btn btn-lg" href="index.php" role="button">Retour</a>
             </div>
+<<<<<<< HEAD
             <h1>Ajout d'un Gîte</h1>
             <div class="deco">
                 <a  href="../../require/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
             </div>
         </div>
         <!-- Fin Menu -->
+=======
+                <h1>Ajout d'un Gîte</h1>
+            <div class="deco">
+                <a href="../../inc/connect_admin/deconnection.php"><img class="rubberBand" src="../../assets/img/icone/deco_ico.png" alt="Deconnexion" width="50px"></a>
+            </div>
+        </div>
+        <!-- Fin Menu -->
+        <!-- PHP Code Erreur -->
+>>>>>>> master
         <?php
             // Affiche l'erreur si le formulaire n'est pas complet
             if(!empty($_SESSION['erreur'])){
@@ -145,6 +162,7 @@ if($_POST && $_FILES){
                     </div>';
                      $_SESSION['erreur'] = '';
             }
+<<<<<<< HEAD
             if(!empty($_SESSION['erreurticket'])){
                 echo '<div class="alert alert-danger" role="alert">
                     '. $_SESSION ['erreurticket'].'
@@ -284,6 +302,30 @@ if($_POST && $_FILES){
             </div>
         </form>
         <!-- Fin Formulaire -->
+=======
+            // Erreur d'importation Photo
+            if(!empty($_SESSION['erreurphoto'])){
+                echo '<div class="alert alert-danger" role="alert">
+                    '. $_SESSION ['erreurphoto'].'
+                    </div>';
+                    $_SESSION['erreurphoto'] = '';
+            }
+        ?>
+        <!-- Fin PHP Code Erreur -->
+        <!-- Formulaire d'ajout d'un Gîte -->
+        <?php
+        if($_GET['id']=="chambre"){
+            require_once('../../inc/CRUD/form_ajout/form_ajout_chambre.php');
+        }elseif($_GET['id']=="appartement"){
+            require_once('../../inc/CRUD/form_ajout/form_ajout_appartement.php');
+        }elseif($_GET['id']=="maison"){
+            require_once('../../inc/CRUD/form_ajout/form_ajout_maison.php');
+        }else{
+            $_SESSION['erreur'] = "Ce type de Logement n'éxiste pas";
+            header('Location:index.php');
+        }
+        ?>
+>>>>>>> master
     </main>
     <!-- Fin Main -->
     <footer class="bottom">
