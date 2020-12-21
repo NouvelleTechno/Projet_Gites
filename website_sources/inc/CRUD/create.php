@@ -9,7 +9,6 @@ if($_POST && $_FILES){
     && isset($_POST['categorie']) && !empty($_POST['categorie'])
     && isset($_POST['nbr_couchage']) && !empty($_POST['nbr_couchage'])
     && isset($_POST['nbr_sdb']) && !empty($_POST['nbr_sdb'])
-    && isset($_POST['nbr_piece'])
     && isset($_POST['descrip']) && !empty($_POST['descrip'])
     && isset($_FILES['img_pre']) && !empty($_FILES['img_pre'])
     && isset($_FILES['img_carrou_1']) && !empty($_FILES['img_carrou_1'])
