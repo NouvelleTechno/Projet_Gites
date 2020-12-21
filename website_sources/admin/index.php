@@ -1,14 +1,9 @@
 <?php
-<<<<<<< HEAD
-// Démarre une nouvelle session ou reprend une session existante
-session_start();
-=======
 session_start();
 if(isset($_SESSION['mail_admin']) && isset($_SESSION['pass_admin'])){
     $_SESSION['nolog'] = "Veuillez vous identifiez";
     header('location:dashboard/index.php');
 }
->>>>>>> master
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,15 +22,9 @@ if(isset($_SESSION['mail_admin']) && isset($_SESSION['pass_admin'])){
 </head>
 <body class="text-center">
     <!-- Formulaire de Connexion Administrateur -->
-<<<<<<< HEAD
-    <form action="auth/authentification.php" method="POST" class="form-signin form_co">
-        <img src="../assets/img/Logo/chatel_logo.png" alt="Logo Chatel">
-        <?php
-=======
     <form action="../inc/connect_admin/authentification.php" method="POST" class="form-signin form_co">
         <img src="../assets/img/Logo/chatel_logo.png" alt="Logo Chatel">
             <?php
->>>>>>> master
                 // Si la session contient l'erreur alors afficher le message correspondant 
                 if(!empty($_SESSION['error'])){
                     echo '<div class="alert alert-danger" role="alert">

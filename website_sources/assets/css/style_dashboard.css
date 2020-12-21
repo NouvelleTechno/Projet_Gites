@@ -18,10 +18,7 @@ html{
 }
 body{
     font-family: 'Opensans';
-<<<<<<< HEAD
-=======
     
->>>>>>> master
 }
 /* Header */
 .nav_me{
@@ -43,14 +40,6 @@ body{
 }
 /* Fin Header */
 /* Menu */
-<<<<<<< HEAD
-.menu{
-    width: 100%;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: flex-end;
-=======
 .gr_menu{
     width: 100%;
     display: flex;
@@ -68,15 +57,10 @@ body{
 }
 .ajout_deco{
     display: flex;
->>>>>>> master
 }
 .bu_ajout{
     padding-top: 6px;
     padding-right: 15px;
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 }
 .bu{
     background-color: #655691;
@@ -89,24 +73,11 @@ body{
     color: #655691;
 }
 .deco{
-<<<<<<< HEAD
-    padding: 5px;
-    padding-right: 25px;
-=======
     padding-top: 5px;
->>>>>>> master
 }
 /* Fin Menu */
 /* Inventaire card */
 .card_gr{
-<<<<<<< HEAD
-    display: inline-flex;
-    flex-wrap: wrap;
-    list-style: none;
-}
-.contenu_card{
-    text-align: center;
-=======
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -122,7 +93,6 @@ body{
     text-align: center;
     margin-bottom: 5px;
     font-weight: bold;
->>>>>>> master
 }
 .title_gite{
     width: 100%;
@@ -133,11 +103,8 @@ body{
 .ico{
     display: flex;
     justify-content: space-around;
-<<<<<<< HEAD
-=======
     margin-top: 5px;
 
->>>>>>> master
 }
 /* Fin Inventaire card */
 /* footer */
