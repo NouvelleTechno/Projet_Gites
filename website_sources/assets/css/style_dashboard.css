@@ -18,6 +18,7 @@ html{
 }
 body{
     font-family: 'Opensans';
+    
 }
 /* Header */
 .nav_me{
@@ -39,17 +40,27 @@ body{
 }
 /* Fin Header */
 /* Menu */
-.menu{
+.gr_menu{
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: 25px;
     margin-bottom: 25px;
+}
+.form_rech{
     display: flex;
-    justify-content: flex-end;
+    padding-top: 7px;
+}
+.sel{
+    margin-left: 6px;
+}
+.ajout_deco{
+    display: flex;
 }
 .bu_ajout{
     padding-top: 6px;
     padding-right: 15px;
-
 }
 .bu{
     background-color: #655691;
@@ -62,8 +73,7 @@ body{
     color: #655691;
 }
 .deco{
-    padding: 5px;
-    padding-right: 25px;
+    padding-top: 5px;
 }
 /* Fin Menu */
 /* Inventaire card */
@@ -71,6 +81,8 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .div_card{
     margin-bottom: 15px;
