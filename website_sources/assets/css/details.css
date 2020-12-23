@@ -1,6 +1,108 @@
 .formContact{
-    width: 300px;
-    /* border: 1px solid red; */
-    margin: 30px auto;
+    width: 100px;
+    justify-content: space-around;
+    
+}  
+
+.liens{
+    /* border: solid 3px red; */
+    display: flex;
+    
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.btn_re{
+    margin-left: 20px;
+}
+.detail_use{
+    /* border: solid 5px red; */
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+    width: 74.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.det{
+    /* border: solid 3px red; */
+    width: 50%;
+    margin: auto;
+    text-align: center;
+
+}
+.form_det{
+   display: flex;
+   flex-wrap: wrap;
+
+   justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+.div_bu{
+     margin-bottom: 10px;
+     margin-right: 10px;
+}
+.liens{
+    margin: 10px;
+}
+.mar{
+    margin: 10px;
+}
+.reserv_equip{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.reserv{
+    width: 55%;
+    background-color: #cfcdcd;
+    text-align: center;
+}
+.titre_reserv{
     background-color: #655691;
+    color: white;
+    font-weight: bold;
+    
+}
+.txt_reserv{
+    font-size: 2rem;
+}
+.equipe{
+    width: 40%;
+    background-color: #cfcdcd;
+    text-align: center;
+}
+.titre_equip{
+    background-color: #655691;
+    color: white;
+    font-weight: bold;
+}
+.desc_tarif{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.desc{
+    width: 55%;
+}
+.titre_desc{
+    color: #655691;
+    font-weight: bold;
+}
+.txt_desc{
+    font-weight: 500!important;
+    font-size: 1rem!important;
+}
+.tarif{
+    width: 40%;
+    background-color: #cfcdcd;
+    text-align: center;
+}
+.tar{
+    background-color: #655691;
+    color: white;
+    font-weight: bold;
 }

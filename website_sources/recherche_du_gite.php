@@ -1,120 +1,42 @@
 <?php
 require_once('inc/header.php');
 // Include Pour le Read
-require_once('inc/CRUD/read.php')
+// require_once('inc/CRUD/read.php');
+require_once('inc/CRUD/form_critere/form_critere.php');
 ?>
-<!-- Formulaire d'ajout d'un Gîte -->
-<form class="form_ajout" style="width:72.5%" method="POST" action="" enctype="multipart/form-data" >
-            <div class=" form_contain">
-                    <!-- Nom Dispo -->
-                    <div class="nom_dispo">
-                        <div class="input_nom form-group">
-                            <label for="nom">Nom</label>
-                            <input type="text" id="nom" name="nom" class="form-control">
-                        </div>
-                        <div class="input_dispo form-group">
-                            <label for="dispo">Disponibilité</label><br>
-                            <select name="dispo" class="select_dispo form-select form-select-lg" aria-label="dispo">
-                                <option value="disponible" selected>Disponible</option>
-                                <option value="indisponible">Indisponible</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Fin Nom Dispo -->
-                    <!-- Adresse Prix -->
-                    <div class="adresse_prix">
-                        <div class="input_adresse form-group">
-                            <label for='adresse'>Adresse</label>
-                            <input type="text" id='adresse' name='adresse' class="form-control">
-                        </div>
-                        <div class="input_prix form-group">
-                            <label for="prix">Prix</label>
-                            <input type="text" id="prix" name="prix" class="form-control">
-                        </div>
-                    </div>
-                    <!-- Fin Adresse Prix -->
-                    <!-- Début du choix de catégorie en input type radio Catégorie -->
-                    <div class="input_cate form-group">
-                        <label for="categorie">Catégorie:</label><br>
-                        <div class="cate_gr">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="categorie" id="inlineRadio1" value="Chambre" checked>
-                                <label class="form-check-label" for="inlineRadio1">Chambre</label>
+        <div class="div_bu">
+            <a href="index.php" class="rubberBand bu_form  btn btn-secondary btn-lg">Accueil</a>
+        </div>
+        <!-- Formulaire d'ajout d'un Gîte -->
+            <form class="form_ajout form_crit" action="">
+                <div class="form_contain">
+                        <!-- cate Dispo -->
+                        <div class="dispo_cate">
+                            <div>
+                                <label for="dispo">Disponibilité:</label>
+                                <select name="dispo" class="select_dispo sel form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                        <option value="all">All</option>
+                                        <option value="1">Disponible</option>
+                                        <option value="0">Indisponible</option>
+                                </select>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="categorie" id="inlineRadio2" value="Appartement">
-                                <label class="form-check-label" for="inlineRadio2">Appartement</label>
+                            <div>
+                                <label for="categorie">Catégorie:</label>
+                                <select name="categorie" class=" select_dispo sel form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                        <option value="all">All</option>
+                                        <option value="Chambre">Chambre</option>
+                                        <option value="Appartement">Appartement</option>
+                                        <option value="Maison">Maison</option>
+                                </select>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="categorie" id="inlineRadio3" value="Maison">
-                                <label class="form-check-label" for="inlineRadio3">Maison</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin du choix de catégorie en input type radio Catégorie -->
-                    <!-- NB de Couchage, Sdb, Pièce(si cocher maison ou appart) -->
-                    <div class="nb">
-                        <div class="form-group">
-                                <label for="nbr_couchage">NB de Couchages</label><br>
-                                <select name="nbr_couchage" class="select_dispo form-select form-select-lg" aria-label="nbr_couchage">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                                <label for="nbr_sdb">NB de Sdb</label><br>
-                                <select name="nbr_sdb" class="select_dispo form-select form-select-lg" aria-label="nbr_sdb">
-                                <option value="0" selected>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                                <label for="nbr_piece">NB de Pièce</label><br>
-                                <select name="nbr_piece" class="select_dispo form-select form-select-lg" aria-label="nbr_piece">
-                                <option value="0" selected>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Fin NB de Couchage, Sdb, Pièce(si cocher maison ou appart) -->
-                    <!-- Equipements -->
-                    <div class="input_equip form-group">
-                        <label for="equipement">Equipements:</label><br>
-                        <div class="equip_space form-check">
-                            <input name="equipement" class="form-check-input" type="checkbox" value="Wifi" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">Wifi</label>
-                        </div>
-                        <div class="equip_space form-check">
-                            <input name="equipement" class="form-check-input" type="checkbox" value="Lave-Linge" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">Lave-Linge</label>
-                        </div>
-                        <div class="equip_space form-check">
-                            <input name="equipement" class="form-check-input" type="checkbox" value="Jardin" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">Jardin</label>
+                        <div class="div_bu_form">
+                            <button type="submit" class="rubberBand bu_form  btn btn-secondary btn-lg">Valider</button>
                         </div> 
-                        <div class="equip_space form-check">
-                            <input name="equipement" class="form-check-input" type="checkbox" value="Piscine" id="flexCheckChecked">
-                            <label class="form-check-label" for="flexCheckChecked">Piscine</label>
-                        </div>
                     </div>
-                    <!-- Fin Equipements -->
-                    <!-- Fin Description -->
-                    <div class="div_bu_form">
-                        <button type="submit" class="rubberBand bu_form  btn btn-secondary btn-lg">Valider</button>
-                    </div> 
-            </div>
-        </form>
+                    <!-- Fin categorie Dispo -->
+                    
+                 </div>
+            </form>
         <!-- Yoann -->
                <!-- Mon Inventaire des Gîtes -->
             <!-- PHP -->
@@ -128,8 +50,8 @@ require_once('inc/CRUD/read.php')
                             <div class="contenu_card card-body">
                                 <h4 class="title_gite card-title titre_card"><?=$nom?></h4>
                                 <div>
-                                    <p class="card-text"><?=$adresse?></p>
-                                    <p class="card-text"><?=$categorie?></p>
+                                    <p class="card-text"><?= $categorie ?></p>
+                                    <p class="card-text"><?= $prix?>€/Nuit</p>
                                 </div>
                                 <div class="ico">
                                     <a href="detail_du_gite.php?id_gite=<?= $id_gite?>"><img class="rubberBand" src="assets/img/icone/voir.png" alt="Inspecter" width="25px" height="25px"></a>

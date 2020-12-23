@@ -26,9 +26,15 @@ require_once('inc/CRUD/read.php');
   </a>
 </div>
 <!-- formulaire -->
-
+<aside>
 <div class="form_acc">
-  <form class="formContact form_ajout form_acc" method="POST">
+   
+  <p class="bienv">Les Gîtes de Chatel Vous souhaites la Bienvenue</p>  
+      <div class="div_bu">
+        <a href="recherche_du_gite.php" class="rubberBand bu_form  btn btn-secondary btn-lg">GO</a>
+      </div>
+</div>
+</aside> <!-- <form class="formContact form_ajout form_acc" method="POST">
 
     <div class=" form_contain">
 
@@ -42,13 +48,10 @@ require_once('inc/CRUD/read.php');
         <label for="date">Date de départ</label>
         <input type="date" name="date_de_depart" class="form-control">
       </div>
-      <div class="div_bu_form">
-        <a href="recherche_du_gite.php" class="rubberBand bu_form  btn btn-secondary btn-lg">GO</a>
-      </div>
+      
     </div>
-  </form>
-</div>
-<h1>Bons Plans</h1>
+  </form> -->  
+<h1 class="h1_acc">Bons Plans</h1>
 
 <!-- les cards -->
 <div class="card_ac">
@@ -61,7 +64,7 @@ require_once('inc/CRUD/read.php');
   <img src="<?=$img_pre?>" class="card-img-top" alt="img présentation gîte">
     <div class="card-body">
       <h5 class="card-title"><?=$nom?></h5>
-      <p class="card-text"><?=$prix?></p>
+      <p class="card-text"><?=$prix?>€/Nuit</p>
       <div class="div_bu_form">
         <a href="detail_du_gite.php?id_gite=<?=$id_gite?>" class="rubberBand bu_form  btn btn-secondary btn-lg">voir</a>
       </div>

@@ -22,10 +22,6 @@
         margin-bottom: 30px;
         box-shadow: 3px 3px 5px #655691;
         text-align: center;
-    
-        
-        
-        
     }
     .titre_card{
         color:  #655691;
@@ -38,5 +34,25 @@
         /* transform: translate(50%); */
         left: 23%;
         z-index: 9999;
+    }
+    .dispo_cate{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .div_bu_form{
+        margin-top: 25px;
+    }
+    .form_crit{
+        width: 50%!important;
+    }
+    .nb_crit{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .div_bu{
+        margin-top: 10px;
+        margin-left: 10px;
     }
     

@@ -13,7 +13,7 @@ margin-right: auto;
 .btn{
     background-color: #655691;
 }
-.w-100{
+.taille_img{
     height: 1010px;
 }
 .card_accueil{
@@ -35,11 +35,22 @@ margin-right: auto;
     color:  #655691;
 }
 .form_acc{
-    width: 50%;
+    text-align: center;
+    width: 30%!important;
     background-color: rgba(233, 229, 229, .5) !important;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
     top: 50%;
-    /* transform: translate(50%); */
-    left: 23%;
+    transform: translate(40%);
+    left: 35%;
     z-index: 9999;
+}
+.h1_acc{
+    margin-top: 15px;
+}
+.bienv{
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
 }
